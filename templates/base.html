@@ -2,9 +2,26 @@
 <html>
 <head>
     <title>NORRATE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js">
+    
+    </script>
+    
+    <title>Home Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
+    <py-script>
+        import requests
+        def get_data():
+            response = requests.get('http://localhost:5000/app/app')
+            data = response.json()
+            print(data)  # Print the data to the console
+            # Update the HTML element with the data
+            element = document.getElementById('data-container')
+            element.innerHTML = f'Data from backend: {data["message"]}'
+    </py-script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{{ url_for('main.index') }}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
