@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Edit Note</h1>
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    {{ csrf_token() }}
+    
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.title.label }} {{ form.title(size=20) }}
+    </p>
+    <p>
+      {{ form.content.label }} {{ form.content(rows=10, cols=40) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+  </form>
+{% endblock %}

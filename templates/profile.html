@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Profile</h1>
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    {{ csrf_token() }}
+    <p>
+      {{ form.username.label }} {{ form.username(size=20) }}
+    </p>
+    <p>
+      {{ form.email.label }} {{ form.email(size=20) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+  </form>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('profile.index') }}">Profile</a></li>
+      <li><a href="{{ url_for('profile.change_password') }}">Change Password</a></li>
+    </ul>
+  </nav>
+{% endblock %}
